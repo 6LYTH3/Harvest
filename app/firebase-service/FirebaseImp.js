@@ -3,7 +3,7 @@ import {
     Text,
     View
 } from 'react-native'
-import * as firebase from "firebase"
+import firebase from "firebase"
 
 // Initialize Firebase
 const config = {
@@ -13,26 +13,34 @@ const config = {
     projectId: "iamgroot-4a11b",
     storageBucket: "iamgroot-4a11b.appspot.com",
     messagingSenderId: "113113588687"
-  };
-firebase.initializeApp(config);
+};
 
 class FirebaseImp extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            data: ""
-        }
+        firebase.initializeApp(config);
+        this.state = ({
+            data: "",
+        })
+    }
+
+    GetName() {
+        firebase.database().ref('user/name').once('value', (snap) => {
+            this.setState({
+                data: snap.val(),
+            })
+        })
     }
 
     componentDidMount() {
-        firebase.database().ref("user/name").on('value', (snap) => {
-            this.state.data = snap.val()
-        })
+        setInterval(() => {
+            this.GetName()
+        }, 5000)
     }
     render() {
         return (
             <View>
-                <Text>Text From FirebaseImp {this.state.data}</Text>
+                <Text>Text From FirebaseImp: {this.state.data}</Text>
             </View>
         )
     }

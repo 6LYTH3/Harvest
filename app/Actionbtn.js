@@ -4,14 +4,14 @@ import { StyleSheet, View, Text, TouchableHighlight } from 'react-native'
 
 export default class Actionbtn extends Component {
     render() {
-        return {
+        return (
             <View style={styles.action}>
                 <TouchableHighlight underlayColor='#24CE84'
                 onPress={this.props.onPress}>
                 <Text style={styles.actionText}>{this.props.title}</Text>
                 </TouchableHighlight>
             </View>
-        }
+        )
     }
 }
 
@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
         paddingLeft: 16,
         paddingTop: 14,
         paddingBottom: 16,
-      },
-      actionText: {
+    },
+    actionText: {
         color: '#fff',
         fontSize: 16,
         textAlign: 'center',
-      },
+    },
 })

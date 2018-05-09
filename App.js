@@ -12,6 +12,7 @@ import {
   View
 } from 'react-native';
 import FirebaseImp from './app/firebase-service/FirebaseImp'
+import Actionbtn from './app/Actionbtn'
 import NavBar from './app/NavBar'
 
 type Props = {};
@@ -20,6 +21,8 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <NavBar title="Harvest" />
+        <View style={{flex: 0.9}} />
+        <Actionbtn style={{flex: 0.1}} onPress={() => console.log('Cancel Pressed')} title="Add" />
       </View>
     );
   }

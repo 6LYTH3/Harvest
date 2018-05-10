@@ -26,8 +26,8 @@ class FirebaseImp extends Component {
 
     GetName() {
         firebase.database().ref('user/name').once('value', (snap) => {
-            this.setState({
-                data: snap.val(),
+            this.setState(d => {
+                return { data: snap.val() }
             })
         })
     }

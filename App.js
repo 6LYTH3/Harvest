@@ -11,7 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
-import FirebaseImp from './components/firebase-service/FirebaseImp'
+import FirebaseImp, { GetRegisterItem } from './components/firebase-service/FirebaseImp'
 import Actionbtn from './components/Actionbtn'
 import NavBar from './components/NavBar'
 import Simple from './components/Simple'
@@ -20,6 +20,7 @@ import ListItems from './components/ListItems'
 type Props = {};
 export default class App extends Component<Props> {
   render() {
+    GetRegisterItem()
     return (
       <View style={styles.container}>
         <NavBar title="Harvest" />

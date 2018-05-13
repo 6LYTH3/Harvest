@@ -14,11 +14,11 @@ const config = {
     storageBucket: "iamgroot-4a11b.appspot.com",
     messagingSenderId: "113113588687"
 };
+firebase.initializeApp(config);
 
-class FirebaseImp extends Component {
+export default class FirebaseImp extends Component {
     constructor(props) {
         super(props)
-        firebase.initializeApp(config);
         this.state = ({
             data: "",
         })
@@ -46,4 +46,16 @@ class FirebaseImp extends Component {
     }
 }
 
-export default FirebaseImp
+export function GetRegisterItem() {
+    items = []
+    firebase.database().ref('ctrl').once('value', (snap) => {
+        snap.forEach(function (child) {
+            console.log(child.key, child.val());
+            if(!(child.val() == 8) || !(child.val() == '-')) {
+                items.push(child)
+            }
+        })
+    })
+
+    return items
+}

@@ -11,10 +11,11 @@ import {
   Text,
   View
 } from 'react-native';
-import FirebaseImp from './app/firebase-service/FirebaseImp'
-import Actionbtn from './app/Actionbtn'
-import NavBar from './app/NavBar'
-import Simple from './app/Simple'
+import FirebaseImp from './components/firebase-service/FirebaseImp'
+import Actionbtn from './components/Actionbtn'
+import NavBar from './components/NavBar'
+import Simple from './components/Simple'
+import ListItems from './components/ListItems'
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -23,7 +24,9 @@ export default class App extends Component<Props> {
       <View style={styles.container}>
         <NavBar title="Harvest" />
         <View style={{flex: 0.9}}>
-          <Simple />
+          <ListItems title='ไฟหน้าบ้าน'/>
+          <ListItems title='ปั้มน้ำ'/>
+          <ListItems title='ไฟห้องนอน'/>
         </View>
         <Actionbtn style={{flex: 0.1}} onPress={() => console.log('Cancel Pressed')} title="Add" />
       </View>

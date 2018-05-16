@@ -32,7 +32,7 @@ export default class ListItems extends Component {
             <View style={styles.container}>
                 <Swipeable onRef={ref => this.swipeable = ref} rightButtons={rightButtons}>
                     <View style={styles.listItem}>
-                        <Text>{this.props.title}</Text>
+                        <Text style={styles.item}>{this.props.title}</Text>
                     </View>
                 </Swipeable>
             </View>
@@ -50,6 +50,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'paleturquoise'
+    },
+    item: {
+        fontSize: 16,
+        fontWeight: "500"
     },
     rightSwipeItem: {
         flex: 1,

@@ -46,16 +46,17 @@ export default class FirebaseImp extends Component {
     }
 }
 
+let items = []
 export function GetRegisterItem() {
-    items = []
-    firebase.database().ref('ctrl').once('value', (snap) => {
+    firebase.database().ref('ctrl/title').once('value', (snap) => {
         snap.forEach(function (child) {
-            console.log(child.key, child.val());
-            if(!(child.val() == 8) || !(child.val() == '-')) {
+            if ((child.val() != '-')) {
                 items.push(child)
             }
         })
     })
+}
 
+export function GetItems() {
     return items
 }

@@ -61,3 +61,9 @@ export function GetRegisterItem() {
         })
     })
 }
+
+export function ToggleSwitch(name, val) {
+    var item = {};
+    item[name] = val
+    firebase.database().ref('ctrl/state').update(item)
+}

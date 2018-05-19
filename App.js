@@ -35,11 +35,11 @@ export default class App extends Component {
         <View style={{ flex: 0.9 }}>
           {
             this.state.items.map(function (d, i) {
-              return <ListItems title={d.val()} />
+              return (<ListItems key={d.val()} title={d} />)
             })
           }
         </View>
-        <Actionbtn style={{ flex: 0.1 }} onPress={() => console.log('Cancel Pressed')} title="Add" />
+        {/* <Actionbtn style={{ flex: 0.1 }} onPress={() => console.log('Cancel Pressed')} title="Add" /> */}
       </View>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from "React"
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
 import Swipeable from 'react-native-swipeable'
+import FirebaseImp, { ToggleSwitch } from './firebase-service/FirebaseImp'
 
 export default class ListItems extends Component {
     constructor(props) {
@@ -15,6 +16,12 @@ export default class ListItems extends Component {
         this.handleUserBeganScrollingParentView()
         this.setState(p => {
             return { turn: p.turn == 'Open' ? 'Close' : 'Open' }
+        }, () => {
+            if (this.state.turn == 'Close') {
+                ToggleSwitch(this.props.title.key, 1)
+            } else {
+                ToggleSwitch(this.props.title.key, 0)
+            }
         })
     }
 
@@ -32,7 +39,7 @@ export default class ListItems extends Component {
             <View style={styles.container}>
                 <Swipeable onRef={ref => this.swipeable = ref} rightButtons={rightButtons}>
                     <View style={styles.listItem}>
-                        <Text style={styles.item}>{this.props.title}</Text>
+                        <Text style={styles.item}>{this.props.title.val()}</Text>
                     </View>
                 </Swipeable>
             </View>

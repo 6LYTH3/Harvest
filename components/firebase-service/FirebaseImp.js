@@ -46,17 +46,18 @@ export default class FirebaseImp extends Component {
     }
 }
 
-let items = []
 export function GetRegisterItem() {
-    firebase.database().ref('ctrl/title').once('value', (snap) => {
-        snap.forEach(function (child) {
-            if ((child.val() != '-')) {
-                items.push(child)
-            }
+    return new Promise(function (resolve, reject) {
+        var items = []
+        firebase.database().ref('ctrl/title').once('value', (snap) => {
+            snap.forEach(function (child) {
+                if ((child.val() != '-')) {
+                    items.push(child)
+                    console.log(child.val())
+                }
+            })
+        }).then(() => {
+            resolve(items)
         })
     })
-}
-
-export function GetItems() {
-    return items
 }

@@ -5,32 +5,41 @@ import {
   Text,
   View
 } from 'react-native';
-import FirebaseImp, { GetItems, GetRegisterItem } from './components/firebase-service/FirebaseImp'
+import FirebaseImp, { GetRegisterItem } from './components/firebase-service/FirebaseImp'
 import Actionbtn from './components/Actionbtn'
 import NavBar from './components/NavBar'
 import Simple from './components/Simple'
 import ListItems from './components/ListItems'
 
-let items = []
 export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = ({
+      items: [],
+    })
+
+  }
+
+  componentDidMount() {
+    GetRegisterItem().then((data) => {
+      this.setState(d => {
+        return {items: data}
+      }, () => this.forceUpdate())
+    })
+  }
+
   render() {
-    GetRegisterItem()
-    setTimeout(() => {
-      items = GetItems()
-    }, 2000)
     return (
       <View style={styles.container}>
         <NavBar title="Harvest" />
-        <Text>{items}</Text>
-        <View style={{flex: 0.9}}>
-          {/* {items.map(function(d, i){
-            <ListItems title={d.val()} />
-          })} */}
-          {/* <ListItems title='ไฟหน้าบ้าน'/>
-          <ListItems title='ปั้มน้ำ'/>
-          <ListItems title='ไฟห้องนอน'/> */}
+        <View style={{ flex: 0.9 }}>
+          {
+            this.state.items.map(function (d, i) {
+              return <ListItems title={d.val()} />
+            })
+          }
         </View>
-        <Actionbtn style={{flex: 0.1}} onPress={() => console.log('Cancel Pressed')} title="Add" />
+        <Actionbtn style={{ flex: 0.1 }} onPress={() => console.log('Cancel Pressed')} title="Add" />
       </View>
     );
   }

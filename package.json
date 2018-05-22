@@ -1,6 +1,8 @@
 {
   "name": "Harvest",
   "version": "0.0.1",
+  "description": "A Simple Online Remote Control Applicaiton",
+  "author": "Naruedol Yoojun",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",

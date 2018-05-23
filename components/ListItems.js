@@ -41,6 +41,18 @@ export default class ListItems extends Component {
                 }
             })
         })
+
+        // Background Workder
+        setInterval(function() {
+            GetStateStatus(this.props.title.key).then((val) => {
+                this.setState(p => {
+                    return { 
+                        status: val,
+                        turn: val == 'On' ? 'Close' : 'Open'
+                    }
+                })
+            })
+        }, 1000)
     }
 
     swipeable = null

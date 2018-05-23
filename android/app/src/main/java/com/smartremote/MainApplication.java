@@ -1,4 +1,4 @@
-package com.harvest;
+package com.smartremote;
 
 import android.app.Application;
 

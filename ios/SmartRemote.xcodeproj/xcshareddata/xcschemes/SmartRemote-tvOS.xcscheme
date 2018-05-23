@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "Harvest-tvOS.app"
-               BlueprintName = "Harvest-tvOS"
-               ReferencedContainer = "container:Harvest.xcodeproj">
+               BuildableName = "SmartRemote-tvOS.app"
+               BlueprintName = "SmartRemote-tvOS"
+               ReferencedContainer = "container:SmartRemote.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Harvest-tvOSTests.xctest"
-               BlueprintName = "Harvest-tvOSTests"
-               ReferencedContainer = "container:Harvest.xcodeproj">
+               BuildableName = "SmartRemote-tvOSTests.xctest"
+               BlueprintName = "SmartRemote-tvOSTests"
+               ReferencedContainer = "container:SmartRemote.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Harvest-tvOSTests.xctest"
-               BlueprintName = "Harvest-tvOSTests"
-               ReferencedContainer = "container:Harvest.xcodeproj">
+               BuildableName = "SmartRemote-tvOSTests.xctest"
+               BlueprintName = "SmartRemote-tvOSTests"
+               ReferencedContainer = "container:SmartRemote.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Harvest-tvOS.app"
-            BlueprintName = "Harvest-tvOS"
-            ReferencedContainer = "container:Harvest.xcodeproj">
+            BuildableName = "SmartRemote-tvOS.app"
+            BlueprintName = "SmartRemote-tvOS"
+            ReferencedContainer = "container:SmartRemote.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Harvest-tvOS.app"
-            BlueprintName = "Harvest-tvOS"
-            ReferencedContainer = "container:Harvest.xcodeproj">
+            BuildableName = "SmartRemote-tvOS.app"
+            BlueprintName = "SmartRemote-tvOS"
+            ReferencedContainer = "container:SmartRemote.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Harvest-tvOS.app"
-            BlueprintName = "Harvest-tvOS"
-            ReferencedContainer = "container:Harvest.xcodeproj">
+            BuildableName = "SmartRemote-tvOS.app"
+            BlueprintName = "SmartRemote-tvOS"
+            ReferencedContainer = "container:SmartRemote.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

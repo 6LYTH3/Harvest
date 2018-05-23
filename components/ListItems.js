@@ -35,24 +35,23 @@ export default class ListItems extends Component {
     componentDidMount() {
         GetStateStatus(this.props.title.key).then((val) => {
             this.setState(p => {
-                return { 
+                return {
                     status: val,
                     turn: val == 'On' ? 'Close' : 'Open'
                 }
             })
-        })
-
-        // Background Workder
-        setInterval(function() {
-            GetStateStatus(this.props.title.key).then((val) => {
-                this.setState(p => {
-                    return { 
-                        status: val,
-                        turn: val == 'On' ? 'Close' : 'Open'
-                    }
+        }).then(() => {
+            setInterval(() => {
+                GetStateStatus(this.props.title.key).then((val) => {
+                    this.setState(p => {
+                        return {
+                            status: val,
+                            turn: val == 'On' ? 'Close' : 'Open'
+                        }
+                    })
                 })
-            })
-        }, 1000)
+            }, 2000)
+        })
     }
 
     swipeable = null
@@ -68,9 +67,9 @@ export default class ListItems extends Component {
         return (
             <View style={styles.container}>
                 <Swipeable onRef={ref => this.swipeable = ref} rightButtons={rightButtons}>
-                    <View style={this.state.status == 'Off' ? styles.listItemOff :  styles.listItem}>
-                        <Text style={styles.item}>{this.props.title.val()}</Text>
-                        <Text style={styles.item_status}>{this.state.status}</Text>
+                    <View style={this.state.status == 'Off' ? styles.listItemOff : styles.listItem}>
+                        <Text style={[this.state.status == 'Off' ? styles.text_black : styles.text_white, styles.item]}>{this.props.title.val()}</Text>
+                        {/* <Text style={styles.item_status}>{this.state.status}</Text> */}
                     </View>
                 </Swipeable>
             </View>
@@ -87,13 +86,14 @@ const styles = StyleSheet.create({
         height: 75,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'paleturquoise'
+        backgroundColor: '#3498db'
+        // backgroundColor: 'paleturquoise'
     },
     listItemOff: {
         height: 75,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'gray'
+        backgroundColor: '#dfe6e9'
     },
     item: {
         fontSize: 16,
@@ -103,17 +103,17 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: "100"
     },
+    text_white: {
+        color: '#fff'
+    },
+    text_black: {
+        color: '#000'
+    },
     rightSwipeItem: {
         flex: 1,
         justifyContent: 'center',
         paddingLeft: 20,
         backgroundColor: 'lightseagreen'
-    },
-    rightSwipeItemOff: {
-        flex: 1,
-        justifyContent: 'center',
-        paddingLeft: 20,
-        backgroundColor: 'gray'
     },
 
   });

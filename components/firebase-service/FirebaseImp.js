@@ -24,19 +24,6 @@ export default class FirebaseImp extends Component {
         })
     }
 
-    GetName() {
-        firebase.database().ref('user/name').once('value', (snap) => {
-            this.setState(d => {
-                return { data: snap.val() }
-            })
-        })
-    }
-
-    componentDidMount() {
-        setInterval(() => {
-            this.GetName()
-        }, 5000)
-    }
     render() {
         return (
             <View>
@@ -66,4 +53,16 @@ export function ToggleSwitch(name, val) {
     var item = {};
     item[name] = val
     firebase.database().ref('ctrl/state').update(item)
+}
+
+export function GetStateStatus(name) {
+    return new Promise(function (resolve, reject) {
+        firebase.database().ref('ctrl/state/' + name).once('value', (snap) => {
+            if(snap.val() == 0) {
+                resolve('Off')
+            } else {
+                resolve('On')
+            }
+        })
+    })
 }

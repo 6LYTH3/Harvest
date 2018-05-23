@@ -6,7 +6,6 @@ import {
   View
 } from 'react-native';
 import FirebaseImp, { GetRegisterItem } from './components/firebase-service/FirebaseImp'
-import Actionbtn from './components/Actionbtn'
 import NavBar from './components/NavBar'
 import Simple from './components/Simple'
 import ListItems from './components/ListItems'
@@ -14,6 +13,9 @@ import ListItems from './components/ListItems'
 export default class App extends Component {
   constructor(props) {
     super(props)
+    console.ignoredYellowBox = [
+      'Setting a timer'
+    ];
     this.state = ({
       items: [],
     })
@@ -31,7 +33,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <NavBar title="Harvest" />
+        <NavBar title="Smart Remote Control" />
         <View style={{ flex: 0.9 }}>
           {
             this.state.items.map(function (d, i) {
@@ -39,7 +41,6 @@ export default class App extends Component {
             })
           }
         </View>
-        {/* <Actionbtn style={{ flex: 0.1 }} onPress={() => console.log('Cancel Pressed')} title="Add" /> */}
       </View>
     );
   }
